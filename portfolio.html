@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bahavathi — Portfolio</title>
+  <meta name="description" content="Personal portfolio — Bahavathi" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff8f5; /* soft peach */
+      --accent:#ff7a59;
+      --muted:#7b6f6a;
+      --card:#fff;
+      --glass: rgba(255,255,255,0.6);
+      --radius:16px;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    body{background:radial-gradient(circle at 10% 10%, #fff9f2 0%, var(--bg) 40%), linear-gradient(180deg, rgba(255,122,89,0.04), transparent 40%); color:#2b2b2b;}
+
+    /* Layout */
+    .container{max-width:1100px;margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:white;background:linear-gradient(135deg,var(--accent),#ffd36b);box-shadow:0 6px 18px rgba(255,122,89,0.12)}
+    .title{line-height:1}
+    .title h1{margin:0;font-size:1.05rem}
+    .title p{margin:0;font-size:0.8rem;color:var(--muted)}
+
+    nav{display:flex;gap:10px}
+    .btn{background:transparent;border:0;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn:hover{background:rgba(0,0,0,0.04)}
+    .cta{background:linear-gradient(90deg,var(--accent),#ffb57a);color:white;padding:10px 14px;border-radius:12px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:28px}
+    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(43,43,43,0.06)}
+    .hero h2{margin:0 0 6px 0;font-size:2rem}
+    .lead{color:var(--muted);margin:12px 0}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .pill{background:var(--glass);padding:8px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
+
+    /* Avatar card */
+    .avatar-wrap{position:relative;height:100%;display:flex;align-items:center;justify-content:center}
+    .avatar{width:240px;height:240px;border-radius:20px;background:linear-gradient(135deg,#fff4ef, #ffece0);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 36px rgba(255,122,89,0.12);}
+    .avatar svg{width:140px;height:140px;opacity:0.95}
+
+    /* Sections */
+    section{margin-top:28px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{padding:18px;border-radius:14px;background:linear-gradient(180deg,#fff,#fffefc);border:1px solid rgba(0,0,0,0.03)}
+    .project h3{margin:0 0 8px 0}
+    .project p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* Resume */
+    .resume{display:flex;gap:18px;align-items:flex-start}
+    .resume .col{flex:1}
+    .resume pre{background:#f9f6f5;padding:14px;border-radius:10px;white-space:pre-wrap;margin:0}
+
+    /* Contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form input, form textarea{padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);font-size:0.95rem}
+    form textarea{grid-column:1/-1;min-height:110px}
+    .socials{display:flex;gap:10px;margin-top:12px}
+
+    footer{margin:36px 0 12px;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .avatar{width:200px;height:200px}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+      .container{margin:20px;padding:18px}
+      .logo{width:46px;height:46px}
+    }
+
+    /* tiny utilities */
+    .muted{color:var(--muted)}
+    .center{display:grid;place-items:center}
+    a{color:inherit}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">Bahavathi</div>
+        <div class="title">
+          <h1>Bahavathi</h1>
+          <p class="muted">Designer • Developer • Problem-solver</p>
+        </div>
+      </div>
+      <nav>
+        <button class="btn" data-scroll="home">Home</button>
+        <button class="btn" data-scroll="about">About</button>
+        <button class="btn" data-scroll="projects">Projects</button>
+        <button class="btn" data-scroll="resume">Resume</button>
+        <button class="btn" data-scroll="contact">Contact</button>
+        <button class="cta" id="downloadResume">Download Resume</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="card">
+          <h2>Hi, I'm Bahavathi — I build crisp, useful web experiences.</h2>
+          <p class="lead">I design and develop responsive websites and web apps with a focus on performance, accessibility and delightful details. I enjoy turning complex problems into simple, beautiful interfaces.</p>
+          <div class="skills">
+            <div class="pill">HTML</div>
+            <div class="pill">CSS</div>
+            <div class="pill">JavaScript</div>
+            <div class="pill">React</div>
+            <div class="pill">Node</div>
+            <div class="pill">UI/UX</div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:10px">
+            <button class="btn" id="hireBtn">Hire me</button>
+            <button class="btn" id="seeWork">See work</button>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted)">Currently: Available for freelance & full-time</div>
+        </div>
+
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <!-- decorative SVG avatar -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g" x1="0" x2="1">
+                  <stop offset="0" stop-color="#ffb57a"/>
+                  <stop offset="1" stop-color="#ff7a59"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="200" height="200" rx="20" fill="url(#g)" />
+              <g transform="translate(40,40)" fill="#fff">
+                <circle cx="60" cy="40" r="28" opacity="0.95"/>
+                <rect x="10" y="84" rx="10" width="100" height="60" opacity="0.9"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p class="muted">I’m a product-minded front-end developer with a soft spot for clean interactions and small performance wins. My work ranges from polished marketing sites to single-page web apps.</p>
+        <div style="display:flex;gap:18px;margin-top:16px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px">
+            <h4>What I do</h4>
+            <p class="muted">Design systems, prototypes, animations, accessibility audits, and production-ready code. I ship features quickly and keep codebases maintainable.</p>
+          </div>
+          <div style="flex:1;min-width:220px">
+            <h4>Background</h4>
+            <p class="muted">Engineer by training, designer by curiosity — I’ve worked on small startups and solo projects. I love learning new tools and teaching others what I learn.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+          <article class="project" data-proj='{"title":"Pulse — Health Tracker","desc":"Full-stack health tracker with realtime charts and offline sync.","tags":["React","PWA","IndexedDB"]}'>
+            <h3>Pulse — Health Tracker</h3>
+            <p class="muted">Realtime charts, offline-first, push notifications. Beautiful micro-interactions with SVG animations.</p>
+          </article>
+
+          <article class="project" data-proj='{"title":"Atlas Maps","desc":"Custom mapping UI with fast clustering and minimal bundle size.","tags":["Mapbox","WebGL","Performance"]}'>
+            <h3>Atlas Maps</h3>
+            <p class="muted">Map UI optimized for mobile; small footprint and snappy gestures.</p>
+          </article>
+
+          <article class="project" data-proj='{"title":"Aurora Landing","desc":"Marketing site with animation-driven storytelling and A/B tested sections.","tags":["HTML","CSS","A11y"]}'>
+            <h3>Aurora Landing</h3>
+            <p class="muted">Conversion-focused layouts and accessible, semantic markup.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="card resume">
+        <div class="col">
+          <h2>Resume</h2>
+          <pre>
+Bahavathi — Product Frontend Developer
+Location: Your City • Email: you@domain.com
+
+
+
+Education
+•M.Sc in Computer Science
+
+Skills
+HTML, CSS, JS, React, Node, PWA, Accessibility
+          </pre>
+        </div>
+        <div class="col">
+          <h3>Highlights</h3>
+          <ul class="muted">
+            <li>Built a PWA that increased user retention by 28%.</li>
+            <li>Reduced homepage bundle size from 320KB → 120KB.</li>
+            <li>Launched A/B tests that lifted conversions 12%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p class="muted">Want to work together? Send a message — I respond to most messages within 24–48 hrs.</p>
+        <form id="contactForm" onsubmit="return false;">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" placeholder="Tell me about your project" required></textarea>
+          <button class="cta" style="grid-column:1/-1;">Send message</button>
+        </form>
+
+        <div class="socials">
+          <a href="#" title="GitHub" aria-label="github">GitHub</a>
+          <a href="#" title="LinkedIn" aria-label="linkedin">LinkedIn</a>
+          <a href="#" title="Twitter" aria-label="twitter">Twitter</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Crafted with care • <span id="year"></span> • Bahavathi
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const id = btn.getAttribute('data-scroll');
+        document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    });
+
+    // project modal (lightweight)
+    document.querySelectorAll('.project').forEach(p=>{
+      p.addEventListener('click',()=>{
+        const data = JSON.parse(p.getAttribute('data-proj'));
+        const w = window.open('', '_blank', 'toolbar=0,location=0,menubar=0,width=700,height=520');
+        w.document.write('<title>'+data.title+'</title>');
+        w.document.write('<meta name="viewport" content="width=device-width,initial-scale=1">');
+        w.document.write('<style>body{font-family:Inter,Arial;padding:20px;line-height:1.5;background:#fff8f5;color:#222}h1{margin-top:0}</style>');
+        w.document.write('<h1>'+data.title+'</h1><p>'+data.desc+'</p><p><strong>Tags:</strong> '+(data.tags||[]).join(', ')+'</p>');
+      })
+    });
+
+    // contact form (front-end demo only)
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      alert('Thanks! This demo does not send messages — replace the handler with your API or mailto link.');
+    });
+
+    // Download resume button: creates a small text resume and downloads it — replace with your PDF if you like
+    document.getElementById('downloadResume').addEventListener('click',()=>{
+      const txt = `Bahavathi — Product Frontend Developer\nLocation: Your City\nEmail: you@domain.com\n\nExperience:\n• Frontend Developer — Company A (2022 — Present)\n`;
+      const blob = new Blob([txt],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'Bahavathi-Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // quick CTA handlers
+    document.getElementById('hireBtn').addEventListener('click', ()=>{
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      const input = document.querySelector('input[name=name]'); if(input) input.focus();
+    });
+    document.getElementById('seeWork').addEventListener('click', ()=>{document.getElementById('projects').scrollIntoView({behavior:'smooth'})});
+
+    // tiny accessibility: keyboard support for project cards
+    document.querySelectorAll('.project').forEach((el)=>{el.tabIndex=0;el.addEventListener('keydown',(e)=>{if(e.key==='Enter') el.click();})});
+  </script>
+</body>
+</html>
